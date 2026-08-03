@@ -2,7 +2,7 @@ _This is a submission for [Frontend Challenge - Comfort Food Edition, CSS Art](h
 
 ## Inspiration
 
-Onigiri — the rice ball my mom used to wrap in foil for school lunches. I wanted the art to feel less like a still-life and more like a plush mascot: huge, bouncy, and impossible not to smile at. So I leaned all the way into kawaii — bold sunburst background, chunky triangle body, blinking eyes, and a squishy click reaction.
+Comfort food isn't just one dish, so instead of picking one I built a whole squad: **Onigiri**, **Boba Tea**, **Gyoza**, **Hot Pot**, and **Mochi**. Five little mascots I'd want on my desk, each with its own personality, all reacting to you the same playful way.
 
 ## Demo
 
@@ -10,22 +10,22 @@ Onigiri — the rice ball my mom used to wrap in foil for school lunches. I want
 <!-- https://<your-username>.github.io/dev.to-Frontend-Challenge-Comfort-Food-Edition/ -->
 <!-- or: {% codepen https://codepen.io/your-handle/pen/your-pen-id %} -->
 
-Open `index.html` in a browser to view it live, or link your GitHub Pages / CodePen URL here before publishing.
+Open `index.html` in a browser — every character bounces on its own, and clicking one gives it happy `^^` eyes and a burst of sparkles.
 
 ## Journey
 
-Everything is `div`s shaped with `clip-path` and gradients, plus a small sprinkle of vanilla JS for the click interaction (per the challenge's "sprinkle of JavaScript is fine, CSS is still the star" rule):
+Everything is `div`s built with `clip-path`/`border-radius` + gradients, sharing one small vanilla-JS click handler (the challenge allows "a sprinkle of JavaScript," so I kept it to exactly one interaction and let CSS carry the rest):
 
-- **The rice** is a single `clip-path: polygon(...)` rounded triangle, given texture with a repeating `radial-gradient` dot pattern layered on top via `::before`, and lifted off the background with a stacked `drop-shadow()` (one hard-edged "cartoon" shadow, one soft blurred one).
-- **The nori band** is a second `clip-path` trapezoid sitting over the bottom third of the triangle, with an inset highlight streak for a plasticky sheen.
-- **The face** blinks on its own timeline (`@keyframes blink` scaling the eyes down to almost nothing every ~4.5s) and swaps to `^^` happy-eyes via a `.happy` class toggle when you click.
-- **The whole onigiri floats and tilts** with an infinite `@keyframes float`, and reacts to clicks with a squash-and-stretch `@keyframes squish` using a bouncy `cubic-bezier` — that one animation is what sells the "alive" feeling.
-- **Idle sparkles** twinkle around it constantly (rotating/scaling star `clip-path`s), and **clicking spawns a burst** of 10 more sparkles flying outward at random angles — that part is the only JS: computing random angles/distances and setting them as CSS custom properties (`--tx`/`--ty`) that a `@keyframes burst-out` animation reads.
-- **Background** is a big spinning `repeating-conic-gradient` sunburst behind a radial gradient wash, which is what gives it that "big and bold" poster-art energy instead of reading as a small icon.
+- **Shared rig**: every character is a `.character` wrapper with the same `.face`/`.eye`/`.cheek`/`.mouth` parts, the same infinite `float` bounce, the same blink timing, and the same `squish` + sparkle-burst reaction on click. Building this as one reusable system (instead of five one-off pieces) is what made it possible to add all five without the CSS ballooning out of control — each character only overrides shape, color, and face position.
+- **Onigiri**: a `clip-path` rounded triangle with a `radial-gradient` dot texture for rice grains and a separate nori-band trapezoid.
+- **Boba Tea**: a tapered cup (`clip-path` polygon) with a striped straw, a domed lid, and tapioca pearls scattered along the bottom via absolutely-positioned circles.
+- **Gyoza**: a squashed dome shape, seared with layered `radial-gradient`s on the bottom half and scalloped pleats along the top edge made from a repeating dot pattern.
+- **Hot Pot**: the trickiest one — a broth bowl split red/clear with a hard-edged `linear-gradient`, sitting in a separate metal "band" (with rivets) below it, ring handles on both sides, and the same rising-steam animation from an earlier ramen-bowl experiment, reused here.
+- **Mochi**: an organic blobby `border-radius` shape, dusted with a small dot pattern for rice-flour texture and a soft crease line for that squishy fold.
 
-The trickiest bit was getting the rounded-triangle silhouette to look soft instead of jagged with just `clip-path` (no native rounded corners on polygons) — solved by adding extra points near each corner instead of one sharp vertex.
+The biggest lesson: getting the *shared* mechanics right first (float, blink, squish, sparkle burst) meant each new character was mostly "draw a shape and drop it into the rig" rather than reinventing animation logic five times.
 
-Next up: I'd like to add a few onigiri "friends" (different fillings/expressions) that react to each other when you click one, and maybe a drag-to-bounce interaction.
+Next up: I'd like each character to react a little to a neighbor being clicked (a ripple of surprise down the row), and maybe let you drag them around the page.
 
 <!-- Team Submissions: Please pick one member to publish the submission and credit teammates by listing their DEV usernames directly in the body of the post. -->
 

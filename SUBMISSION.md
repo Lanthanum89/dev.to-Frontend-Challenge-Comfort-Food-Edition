@@ -2,28 +2,30 @@ _This is a submission for [Frontend Challenge - Comfort Food Edition, CSS Art](h
 
 ## Inspiration
 
-A steaming bowl of ramen — the dish I reach for on a cold, tired night. I wanted to capture that first moment when the bowl lands on the table: broth still rippling, steam curling up, and all the little toppings (soft-boiled egg, nori, scallions, naruto, corn, chopsticks resting on the rim) crowded together.
+Onigiri — the rice ball my mom used to wrap in foil for school lunches. I wanted the art to feel less like a still-life and more like a plush mascot: huge, bouncy, and impossible not to smile at. So I leaned all the way into kawaii — bold sunburst background, chunky triangle body, blinking eyes, and a squishy click reaction.
 
 ## Demo
 
-<!-- Replace with your CodePen/live link once published, e.g.: -->
-<!-- {% codepen https://codepen.io/your-handle/pen/your-pen-id %} -->
+<!-- Replace with your GitHub Pages / CodePen link once published, e.g.: -->
+<!-- https://<your-username>.github.io/dev.to-Frontend-Challenge-Comfort-Food-Edition/ -->
+<!-- or: {% codepen https://codepen.io/your-handle/pen/your-pen-id %} -->
 
-Open `index.html` in a browser to view it live, or embed a CodePen link here before publishing.
+Open `index.html` in a browser to view it live, or link your GitHub Pages / CodePen URL here before publishing.
 
 ## Journey
 
-Everything here is built from plain `div`/`span` elements shaped and colored with pure CSS — no images, no SVG:
+Everything is `div`s shaped with `clip-path` and gradients, plus a small sprinkle of vanilla JS for the click interaction (per the challenge's "sprinkle of JavaScript is fine, CSS is still the star" rule):
 
-- **The bowl** is two nested rounded shapes (`.bowl` + `.broth`), each with an asymmetric `border-radius` to get that wide, shallow bowl silhouette, plus `inset box-shadow`s to fake depth and a glossy broth surface.
-- **The rim** is a separate ellipse (`.bowl-rim`) sitting on top — the trickiest part was realizing it was being clipped by the bowl's `overflow: hidden`. Moving the clipping down to the `.broth` layer (so only the noodles/toppings are contained) and leaving the outer `.bowl` un-clipped let the rim render as a full ellipse instead of getting flattened.
-- **Noodles** are just rotated, curved bars (`border-radius` + slight `rotate()` per strand) layered at different angles so they read as a tangled pile instead of stripes.
-- **Steam** is three blurred, gradient-filled blobs animating up and out with a `@keyframes` loop (rise, drift, fade), staggered with `animation-delay` so they don't move in lockstep.
-- **Toppings** (egg + yolk, naruto swirl via layered `radial-gradient`s, nori sheet, scallion slivers, corn kernels) are all small absolutely-positioned shapes tucked into the broth layer.
+- **The rice** is a single `clip-path: polygon(...)` rounded triangle, given texture with a repeating `radial-gradient` dot pattern layered on top via `::before`, and lifted off the background with a stacked `drop-shadow()` (one hard-edged "cartoon" shadow, one soft blurred one).
+- **The nori band** is a second `clip-path` trapezoid sitting over the bottom third of the triangle, with an inset highlight streak for a plasticky sheen.
+- **The face** blinks on its own timeline (`@keyframes blink` scaling the eyes down to almost nothing every ~4.5s) and swaps to `^^` happy-eyes via a `.happy` class toggle when you click.
+- **The whole onigiri floats and tilts** with an infinite `@keyframes float`, and reacts to clicks with a squash-and-stretch `@keyframes squish` using a bouncy `cubic-bezier` — that one animation is what sells the "alive" feeling.
+- **Idle sparkles** twinkle around it constantly (rotating/scaling star `clip-path`s), and **clicking spawns a burst** of 10 more sparkles flying outward at random angles — that part is the only JS: computing random angles/distances and setting them as CSS custom properties (`--tx`/`--ty`) that a `@keyframes burst-out` animation reads.
+- **Background** is a big spinning `repeating-conic-gradient` sunburst behind a radial gradient wash, which is what gives it that "big and bold" poster-art energy instead of reading as a small icon.
 
-What I'm proud of: the naruto (fish cake) swirl is done entirely with two radial gradients and no extra markup, and the rim/broth clipping fix made the whole bowl silhouette read correctly instead of looking chopped off.
+The trickiest bit was getting the rounded-triangle silhouette to look soft instead of jagged with just `clip-path` (no native rounded corners on polygons) — solved by adding extra points near each corner instead of one sharp vertex.
 
-Next, I'd like to add a subtle broth ripple/shimmer animation and maybe a second bowl variant (miso vs. shoyu color palette) as a toggle.
+Next up: I'd like to add a few onigiri "friends" (different fillings/expressions) that react to each other when you click one, and maybe a drag-to-bounce interaction.
 
 <!-- Team Submissions: Please pick one member to publish the submission and credit teammates by listing their DEV usernames directly in the body of the post. -->
 

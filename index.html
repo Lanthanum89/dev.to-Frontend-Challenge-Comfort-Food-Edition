@@ -3,59 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSS Art: A Bowl of Ramen 🍜</title>
+  <title>CSS Art: Kawaii Onigiri 🍙</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="scene">
-    <h1 class="title">A Bowl of Ramen</h1>
+  <div class="sunburst"></div>
+  <h1 class="title">ONIGIRI!</h1>
 
-    <div class="bowl-wrap">
-      <div class="steam-wrap">
-        <span class="steam s1"></span>
-        <span class="steam s2"></span>
-        <span class="steam s3"></span>
+  <div class="stage">
+    <div class="onigiri-wrap" id="onigiri">
+      <div class="sparkle sp1"></div>
+      <div class="sparkle sp2"></div>
+      <div class="sparkle sp3"></div>
+      <div class="sparkle sp4"></div>
+
+      <div class="rice"></div>
+      <div class="nori"></div>
+
+      <div class="face" id="face">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="cheek left"></div>
+        <div class="cheek right"></div>
+        <div class="mouth"></div>
       </div>
-      <div class="bowl">
-        <div class="broth">
-          <div class="noodles">
-            <span class="noodle n1"></span>
-            <span class="noodle n2"></span>
-            <span class="noodle n3"></span>
-            <span class="noodle n4"></span>
-            <span class="noodle n5"></span>
-          </div>
-
-          <div class="egg">
-            <div class="egg-yolk"></div>
-          </div>
-
-          <div class="naruto"></div>
-
-          <div class="scallions">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="nori"></div>
-
-          <div class="corn">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div class="bowl-rim"></div>
-      </div>
-      <div class="chopsticks">
-        <span class="stick stick1"></span>
-        <span class="stick stick2"></span>
-      </div>
-      <div class="shadow"></div>
     </div>
-  </main>
+  </div>
+
+  <p class="hint">✨ click the onigiri ✨</p>
+
+  <script src="script.js"></script>
 </body>
 </html>

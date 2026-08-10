@@ -476,123 +476,93 @@ body {
 .gyoza .face { top: 32%; }
 
 /* =====================================================
-   HOT POT
+   MOCK TERMINAL
    ===================================================== */
-.hotpot { --ear-color: #eee6da; }
-
-.hotpot .steam-wrap {
-  position: absolute;
-  top: -30%;
-  left: 50%;
-  width: 60%;
-  height: 40%;
-  transform: translateX(-50%);
-  pointer-events: none;
-  z-index: 3;
+.card-terminal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.9rem;
 }
 
-.hotpot .steam {
-  position: absolute;
-  bottom: 0;
-  width: 14%;
-  height: 70%;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
-  filter: blur(2px);
-  animation: rise 3.2s ease-in-out infinite;
-  opacity: 0;
-}
-
-.hotpot .steam.s1 { left: 15%; animation-delay: 0s; }
-.hotpot .steam.s2 { left: 43%; height: 85%; animation-delay: 0.9s; }
-.hotpot .steam.s3 { left: 68%; animation-delay: 1.8s; }
-
-@keyframes rise {
-  0% { transform: translateY(0) scaleX(1); opacity: 0; }
-  20% { opacity: 0.8; }
-  50% { transform: translateY(-40%) scaleX(1.3); opacity: 0.5; }
-  100% { transform: translateY(-90%) scaleX(1.7); opacity: 0; }
-}
-
-.hotpot .pot {
-  position: absolute;
-  inset: 28% 10% 38% 10%;
-  border-radius: 50% 50% 15% 15% / 100% 100% 15% 15%;
+.terminal {
+  width: 100%;
+  border-radius: 10px;
+  background: #0b0d12;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 24px rgba(110, 231, 255, 0.12), inset 0 0 20px rgba(0, 0, 0, 0.6);
   overflow: hidden;
-  background: linear-gradient(90deg, #d97a6b 0% 47%, #c56a5c 47% 50%, #f6efe4 50% 100%);
-  box-shadow: inset 0 10px 16px rgba(0, 0, 0, 0.3);
-  z-index: 1;
+  text-align: left;
 }
 
-.hotpot .veggie {
-  position: absolute;
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.6rem;
+  background: #171a24;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
+  display: inline-block;
 }
 
-.hotpot .veggie.mushroom {
-  width: 20%;
-  height: 14%;
-  left: 18%;
-  top: 20%;
-  background: linear-gradient(180deg, #eee0c8, #d8c39d);
-  border-radius: 50% 50% 40% 40%;
+.dot-red { background: #ff5f57; }
+.dot-yellow { background: #febc2e; }
+.dot-green { background: #28c840; }
+
+.term-title {
+  margin-left: 0.4rem;
+  color: #7d8394;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.7rem;
 }
 
-.hotpot .veggie.leaf {
-  width: 16%;
-  height: 22%;
-  right: 20%;
-  top: 12%;
-  background: linear-gradient(160deg, #8fcf7a, #5fa350);
-  border-radius: 0 60% 0 60%;
-  transform: rotate(-15deg);
+.term-body {
+  padding: 0.7rem 0.7rem 0.8rem;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: clamp(0.6rem, 1.6vw, 0.72rem);
+  line-height: 1.6;
 }
 
-.hotpot .veggie.meat {
-  width: 22%;
-  height: 12%;
-  right: 24%;
-  bottom: 16%;
-  background: linear-gradient(180deg, #f6bfc2, #e0949a);
-  border-radius: 50%;
+.term-body p {
+  margin: 0;
+  color: #cfd3e0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.hotpot .handle {
-  position: absolute;
-  top: 58%;
-  width: 14%;
-  height: 14%;
-  border: 6px solid #b9ada0;
-  border-radius: 50%;
-  background: transparent;
-  z-index: 1;
+.term-body .prompt {
+  color: var(--mint);
 }
 
-.hotpot .handle-left { left: -6%; border-right-color: transparent; }
-.hotpot .handle-right { right: -6%; border-left-color: transparent; }
-
-.hotpot .band {
-  position: absolute;
-  left: 4%;
-  right: 4%;
-  bottom: 8%;
-  height: 34%;
-  background: linear-gradient(180deg, #eee6da 0%, #cfc3b2 60%, #b9ada0 100%);
-  border-radius: 0 0 22% 22% / 0 0 45% 45%;
-  box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.5), inset 0 -6px 10px rgba(0, 0, 0, 0.25);
-  z-index: 1;
+.term-out {
+  color: #7d8394;
+  padding-left: 1em;
 }
 
-.hotpot .band::after {
-  content: "";
-  position: absolute;
-  inset: 20% 10%;
-  background-image: radial-gradient(circle, #9c8f80 22%, transparent 24%);
-  background-size: 22% 100%;
-  background-repeat: repeat-x;
+.term-out .ok {
+  color: var(--mint);
 }
 
-.hotpot .face { top: 78%; z-index: 6; }
+.cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: var(--mint);
+  vertical-align: text-bottom;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
 
 /* =====================================================
    MOCHI

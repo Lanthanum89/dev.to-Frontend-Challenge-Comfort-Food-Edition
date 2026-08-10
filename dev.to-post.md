@@ -1,5 +1,5 @@
 ---
-title: Comfort Food Squad — a CSS Art submission (Onigiri, Boba Tea, Gyoza, Hot Pot, Mochi)
+title: My CSS Art Made Some Foodie Friends 🍙🧋🥟🍲🍡
 published: false
 tags: css, webdev, showdev, frontendchallenge
 ---

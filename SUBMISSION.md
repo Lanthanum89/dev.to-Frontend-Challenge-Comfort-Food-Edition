@@ -2,7 +2,7 @@ _This is a submission for [Frontend Challenge - Comfort Food Edition, CSS Art](h
 
 ## Inspiration
 
-Comfort food isn't just one dish, so instead of picking one I built a whole squad: **Onigiri**, **Boba Tea**, **Gyoza**, **Hot Pot**, and **Mochi**. Five little mascots I'd want on my desk, each with its own personality, all reacting to you the same playful way.
+Comfort food isn't just one dish, so instead of picking one I built a whole squad — and gave them somewhere to live: a dark, neon-lit restaurant with a digital menu display. **Onigiri**, **Boba Tea**, **Gyoza**, and **Hot Pot** double as the menu items, each with a price tag, blinking and bouncing on a glowing CRT-style screen. Underneath, a touchscreen self-order kiosk — the kind you'd find at a fast-food counter — asks "Can I take your order?" and prints out a ticket with your order number.
 
 ## Demo
 
@@ -10,22 +10,23 @@ Comfort food isn't just one dish, so instead of picking one I built a whole squa
 <!-- https://<your-username>.github.io/dev.to-Frontend-Challenge-Comfort-Food-Edition/ -->
 <!-- or: {% codepen https://codepen.io/your-handle/pen/your-pen-id %} -->
 
-Open `index.html` in a browser — every character bounces on its own, and clicking one gives it happy `^^` eyes and a burst of sparkles.
+Open `index.html` in a browser — every character bounces on its own, and clicking one gives it happy `^^` eyes and a burst of sparkles, right there on the menu screen. Give the kiosk below a few seconds and watch it type out its prompt, pulse its order button, and print a receipt.
 
 ## Journey
 
-Everything is `div`s built with `clip-path`/`border-radius` + gradients, sharing one small vanilla-JS click handler (the challenge allows "a sprinkle of JavaScript," so I kept it to exactly one interaction and let CSS carry the rest):
+Everything is `div`s built with `clip-path`/`border-radius` + gradients and CSS animations, with a single small vanilla-JS click handler for the food characters (the challenge allows "a sprinkle of JavaScript," so I kept it to exactly one interaction and pushed everything else — including the kiosk's whole sequence — into pure CSS):
 
-- **Shared rig**: every character is a `.character` wrapper with the same `.face`/`.eye`/`.cheek`/`.mouth` parts, the same infinite `float` bounce, the same blink timing, and the same `squish` + sparkle-burst reaction on click. Building this as one reusable system (instead of five one-off pieces) is what made it possible to add all five without the CSS ballooning out of control — each character only overrides shape, color, and face position.
+- **Shared rig**: every character is a `.character` wrapper with the same `.face`/`.eye`/`.cheek`/`.mouth` parts, the same infinite `float` bounce, the same blink timing, and the same `squish` + sparkle-burst reaction on click. Building this as one reusable system (instead of one-off pieces) is what made it possible to add multiple characters without the CSS ballooning out of control — each character only overrides shape, color, and face position.
 - **Onigiri**: a `clip-path` rounded triangle with a `radial-gradient` dot texture for rice grains and a separate nori-band trapezoid.
 - **Boba Tea**: a tapered cup (`clip-path` polygon) with a striped straw, a domed lid, and tapioca pearls scattered along the bottom via absolutely-positioned circles.
 - **Gyoza**: a squashed dome shape, seared with layered `radial-gradient`s on the bottom half and scalloped pleats along the top edge made from a repeating dot pattern.
-- **Hot Pot**: the trickiest one — a broth bowl split red/clear with a hard-edged `linear-gradient`, sitting in a separate metal "band" (with rivets) below it, ring handles on both sides, and the same rising-steam animation from an earlier ramen-bowl experiment, reused here.
-- **Mochi**: an organic blobby `border-radius` shape, dusted with a small dot pattern for rice-flour texture and a soft crease line for that squishy fold.
+- **Hot Pot**: a broth bowl split red/clear with a hard-edged `linear-gradient`, sitting in a separate metal "band" (with rivets) below it, ring handles on both sides, and a rising-steam animation.
+- **The restaurant scene**: a flickering neon "COMFORT FOOD" sign (layered `text-shadow` glow + a subtle opacity `@keyframes flicker`), a screen bezel with a `repeating-linear-gradient` scanline overlay for that CRT feel, and a wood counter underneath.
+- **The self-order kiosk**: entirely CSS-driven and timed with `animation-delay` so it plays out like a little sequence on page load — "Can I take your order?" types itself out letter by letter using the classic `width: 0 → Nch` + `steps(N, end)` typewriter trick (no JS, no per-letter markup), the "TAP TO ORDER" button pulses with an expanding-ring `box-shadow` and a radial-gradient "ripple" layered on top, and a receipt slides down and prints its order number one digit at a time, torn edge included via a repeating diagonal-gradient background.
 
-The biggest lesson: getting the *shared* mechanics right first (float, blink, squish, sparkle burst) meant each new character was mostly "draw a shape and drop it into the rig" rather than reinventing animation logic five times.
+The biggest lesson: getting the *shared* character mechanics right first (float, blink, squish, sparkle burst) meant each new food was mostly "draw a shape and drop it into the rig" — and having that solid meant I could spend the JS-light budget entirely on the kiosk's CSS choreography instead.
 
-Next up: I'd like each character to react a little to a neighbor being clicked (a ripple of surprise down the row), and maybe let you drag them around the page.
+Next up: I'd like the kiosk's order number to actually reflect whichever dish you last tapped, and maybe have the characters glance toward the kiosk when its button pulses.
 
 <!-- Team Submissions: Please pick one member to publish the submission and credit teammates by listing their DEV usernames directly in the body of the post. -->
 

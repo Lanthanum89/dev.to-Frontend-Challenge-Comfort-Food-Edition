@@ -2,7 +2,9 @@ _This is a submission for [Frontend Challenge - Comfort Food Edition, CSS Art](h
 
 ## Inspiration
 
-Comfort food isn't just one dish, so instead of picking one I built a whole squad — and gave them somewhere to live: a dark, neon-lit restaurant with a digital menu display. **Onigiri**, **Boba Tea**, **Gyoza**, and **Hot Pot** double as the menu items, each with a price tag, blinking and bouncing on a glowing CRT-style screen. Underneath, a touchscreen self-order kiosk — the kind you'd find at a fast-food counter — asks "Can I take your order?" and prints out a ticket with your order number.
+There was a food court kiosk at the back of the Asian grocery store near my first apartment — nothing fancy, just a laminated menu board and a touchscreen order station wedged between the fish counter and the register. I ate there more nights than I'll admit: onigiri wrapped in plastic by the register, boba from the machine that always over-filled the cup, gyoza fried on a flat-top you could hear sizzling from the parking lot, and hot pot on the one night a week they ran the burners. It wasn't glamorous. It was just there, every night, being exactly what I needed after a bad shift.
+
+That kiosk is the whole reason this submission looks the way it does. Comfort food isn't just one dish, so instead of picking one I built the whole spread and gave it somewhere to live: a dark, neon-lit restaurant with a digital menu display. **Onigiri**, **Boba Tea**, **Gyoza**, and **Hot Pot** double as the menu items, each with a price tag, blinking and bouncing on a glowing CRT-style screen. Underneath, a touchscreen self-order kiosk — the kind you'd find at exactly that kind of counter — asks "Can I take your order?" and prints out a ticket with your order number, the same way that one always did.
 
 ## Demo
 

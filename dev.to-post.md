@@ -1,7 +1,7 @@
 ---
 title: My CSS Art Made Some Foodie Friends 🍙🧋🥟🍲
 published: false
-tags: css, webdev, showdev, frontendchallenge
+tags: css, devchallenge, showdev, frontendchallenge
 ---
 
 _This is a submission for [Frontend Challenge - Comfort Food Edition, CSS Art](https://dev.to/challenges/frontend-2026-07-29)._
@@ -12,7 +12,7 @@ Comfort food isn't just one dish, so instead of picking one I built the whole sp
 
 ## Demo
 
-{% codepen CODEPEN_URL_GOES_HERE %}
+{% codepen https://codepen.io/Laura-Norwood/pen/PwWvZBW %}
 
 Live demo: https://lanthanum89.github.io/dev.to-Frontend-Challenge-Comfort-Food-Edition/
 Source: https://github.com/Lanthanum89/dev.to-Frontend-Challenge-Comfort-Food-Edition

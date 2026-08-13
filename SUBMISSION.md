@@ -6,9 +6,10 @@ Comfort food isn't just one dish, so instead of picking one I built the whole sp
 
 ## Demo
 
-<!-- Replace with your GitHub Pages / CodePen link once published, e.g.: -->
-<!-- https://<your-username>.github.io/dev.to-Frontend-Challenge-Comfort-Food-Edition/ -->
-<!-- or: {% codepen https://codepen.io/your-handle/pen/your-pen-id %} -->
+{% codepen https://codepen.io/Laura-Norwood/pen/PwWvZBW %}
+
+Live demo: https://lanthanum89.github.io/dev.to-Frontend-Challenge-Comfort-Food-Edition/
+Source: https://github.com/Lanthanum89/dev.to-Frontend-Challenge-Comfort-Food-Edition
 
 Open `index.html` in a browser — every character bounces on its own, and clicking one gives it happy `^^` eyes and a burst of sparkles, right there on the menu screen. Give the kiosk below a few seconds and watch it type out its prompt, pulse its order button, and print a receipt.
 
